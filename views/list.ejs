@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%=title%>
+      </title>
+      <link rel="stylesheet" href="stylesheets/fontawesome.min.css">
+      <link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+</head>
+<body>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand " style="color: #33C393;font-weight: 500;" href="index">Helica</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index">Product</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="list">User</a>
+          </li>
+
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <!--  -->
+  <div class="container-fluid">
+    <h1 class="text-center mt-3">List User</h1>
+    <div class="container">
+      <table class="table table-striped border">
+        <thead>
+          <tr>
+            <th scope="col">User Id</th>
+            <th scope="col">Full name </th>
+            <th scope="col">Avatar</th>
+            <th scope="col">Username</th>
+            <th scope="col">Password</th>
+            <th scope="col" colspan="2" class="text-center">Edit</th>
+          </tr>
+        </thead>
+        <tbody class="text-center">
+          <% for (const item of data) { %>
+            <tr>
+              <td>
+                <%= item.id %>
+              </td>
+              <td>
+                <%= item.name %>
+              </td>
+              <td>
+                <img src=" <%= item.img %>" alt="" width="80" height="80">
+              </td>
+              <td>
+                <%= item.user %>
+              </td>
+              <td>
+                <%= item.password %>
+              </td>
+              <td>Sửa</td>
+              <td>Xoá</td>
+            </tr>
+            <% } %>
+        </tbody>
+      </table>
+      <div class="d-flex flex-row align-items-center">
+        <button type="button" class="btn btn-primary col-sm-3 col-md-2" data-bs-toggle="modal"
+          data-bs-target="#exampleModal">
+          Add User
+        </button>
+        <div class="col-sm-4 col-md-7 col-xl-8"></div>
+        <nav aria-label="Page navigation example col-sm-5 col-md-2 ">
+          <ul class="pagination ">
+            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+          </ul>
+        </nav>
+      </div>
+      <!-- Button trigger modal -->
+
+
+    </div>
+</body>
+<script src="/javascript/bootstrap.min.js"></script>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta 112name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%=title%>
+    </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <link rel="shortcut icon" href="images/avatar.svg" type="image/x-icon">
+    <link rel="stylesheet" href="stylesheets/register.css">
+    <link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+</head>
+
+<body>
+    <img class="wave" src="images/wave.png">
+    <div class="container">
+        <div class="img">
+            <img src="images/bg.svg">
+        </div>
+        <div class="login-content">
+            <form method="post"  action="/register">
+                <img id="uploadAvatar" src="images/avatar.svg">
+                <input type="file" id="avatarInput" name="avatar">
+                <h2 class="title">Register</h2>
+                <div class="input-div one">
+                    <div class="i">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="div">
+                        <h5>Email</h5>
+                        <input type="text" name="email" id="email" class="input">
+                    </div>
+                </div>
+                <div class="input-div one">
+                    <div class="i">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="div">
+                        <h5>Full Name</h5>
+                        <input type="text" name="fullName" class="input">
+                    </div>
+                </div>
+                <div class="input-div pass">
+                    <div class="i">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="div">
+                        <h5>Password</h5>
+                        <input type="password" name="password" id="pwd" class="input">
+                    </div>
+                </div>
+                <input type="submit" class="btn" value="Sign up">
+                <div class="register">
+                    <h6>Already have an account? </h6>
+                    <a class="btn-register text-decoration-none" href="login">Sign in</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="javascript/bootstrap.min.js"></script>
+<script type="text/javascript" src="javascript/registerForm.js"></script>
+
+</html>
