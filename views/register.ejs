@@ -23,10 +23,11 @@
             <img src="images/bg.svg">
         </div>
         <div class="login-content">
-            <form method="post"  action="/register">
+            <form method="post" enctype="multipart/form-data"  action="/register/regUser">
                 <img id="uploadAvatar" src="images/avatar.svg">
-                <input type="file" id="avatarInput" name="avatar">
+                <input type="file" id="files" required   name="avatar">
                 <h2 class="title">Register</h2>
+				<span id="errorLogin"></span>
                 <div class="input-div one">
                     <div class="i">
                         <i class="fas fa-user"></i>
@@ -57,7 +58,7 @@
                 <input type="submit" class="btn" value="Sign up">
                 <div class="register">
                     <h6>Already have an account? </h6>
-                    <a class="btn-register text-decoration-none" href="login">Sign in</a>
+                    <a class="btn-register text-decoration-none" href="/">Sign in</a>
                 </div>
             </form>
         </div>

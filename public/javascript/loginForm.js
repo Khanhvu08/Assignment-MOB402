@@ -1,12 +1,13 @@
 $(function () {
-    $('.btn').click(function () {
-        if (!$('.inputUsr').val()) {
-            $(".title").text('Vui lòng không để trống tài khoản')
-            return false;
-        }
-        if (!$('.inputPwd').val()) {
-            $(".title").text('Vui lòng không để mật khẩu')
-            return false;
-        }
-    })
-})
+  $(".btn").click(function () {
+    if (!$(".inputUsr").val()) {
+      $("#errorLogin").text("Vui lòng không để trống email");
+      return false;
+    }
+    if (!$(".inputPwd").val()) {
+      $("#errorLogin").text("Vui lòng không để trống mật khẩu");
+      return false;
+    }
+  });
+  $("#errLG").fadeIn().delay(2000).fadeOut();
+});

@@ -1,12 +1,15 @@
 $(function () {
-    $('#btn-add-product').click(function () {
-        if (!$('#email').val()) {
-            $(".title").text('Vui lòng không để trống tài khoản')
-            return false;
-        }
-        if (!$('#pwd').val()) {
-            $(".title").text('Vui lòng không trống để mật khẩu')
-            return false;
-       }
-    })
-})
+  $("#btn-add-product").click(function () {
+    if (
+      !$("#productName").val() ||
+      !$("#productPrice").val() ||
+      !$("#productColor").val() ||
+      !$("#productType").val() ||
+      !$("#customerName").val()
+    ) {
+      $("#error").text("Please complete all fields");
+      return false;
+    }
+  });
+
+});
