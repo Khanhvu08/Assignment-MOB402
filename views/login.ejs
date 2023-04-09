@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>
-		<%=title%>
+		Helica Management
 	</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 	<link rel="shortcut icon" href="images/avatar.svg" type="image/x-icon">
@@ -28,7 +28,7 @@
 				<h2 class="title">Welcome Admin</h2>
 				<span id="errorLogin"></span>
 				<% if (login=='false' ){ %>
-					<span id="errLG">Tài khoản hoặc mật khẩu không đúng</span>
+					<span id="errLG">Sai mật khẩu</span>
 					<%}%>
 						<% if (login=='null' ){ %>
 							<span id="errLG">Tài khoản không tồn tại</span>
@@ -40,9 +40,7 @@
 									<div class="div">
 										<input type="text" name="usr" placeholder="Email" class="inputUsr">
 									</div>
-
 								</div>
-
 								<div class="input-div pass">
 									<div class="i">
 										<i class="fas fa-lock"></i>

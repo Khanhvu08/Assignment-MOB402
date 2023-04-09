@@ -2,13 +2,12 @@
 const express = require('express');
 const path = require('path');
 const session = require('express-session');
-const config = require('./config');
 const port = 3000
-
-const indexRouter = require('./routes/index')
-const registerRouter = require('./routes/register')
-const listRouter = require('./routes/listUser')
-const apiRouter = require('./routes/api')
+require("dotenv").config();
+const userRoute = require('./routes/user.route')
+const indexRoute = require('./routes/index.route.js')
+const productRoute = require('./routes/product.route')
+const apiRoute = require('./routes/api.route')
 const app = express();
 
 //view engine setup 
@@ -16,20 +15,19 @@ app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname) + '/public'))
 
 
-
 app.use(session({
-    secret: config.sessionSecretKey,
+    secret: process.env.SECRET_SESSION_KEY,
     resave:true,
     saveUninitialized:true
 }))
-app.use('/',indexRouter);
-app.use('/register',registerRouter);
-app.use('/list',listRouter);
-app.use('/api',apiRouter);
+app.use('/',indexRoute);
+app.use('/products',productRoute);
+app.use('/users',userRoute);
+app.use('/api',apiRoute);
 
 
 

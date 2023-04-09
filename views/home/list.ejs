@@ -7,7 +7,6 @@
                     <thead>
                         <tr>
                             <th scope="col">Email</th>
-                            <th scope="col">Password</th>
                             <th scope="col">Full Name</th>
                             <th scope="col">Avatar</th>
                             <th scope="col" colspan="2" class="d-none d-md-table-cell">Edit</th>
@@ -24,7 +23,6 @@
                                         <td>
                                             <%= item.email%>
                                         </td>
-                                        <td><b>*************</b></td>
                                         <td>
                                             <%= item.fullName %>
                                         </td>
@@ -52,6 +50,7 @@
                     </tbody>
                 </table>
             </div>
+
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProduct">
                 Add User
             </button>
@@ -72,42 +71,30 @@
                 </div>
                 <div class="modal-body">
 
-                    <form action="/addProduct" enctype="multipart/form-data" method="post">
+                    <form action="/users/addUser" enctype="multipart/form-data" method="post">
                         <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Name</label>
-                            <input type="text" class="form-control " id="productName" name="productName"
-                                placeholder="Jordan Nike Force One">
+                            <label for="exampleFormControlInput1" class="form-label">Username</label>
+                            <input type="text" class="form-control " id="username" name="email"
+                                placeholder="example@gmail.com">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Price</label>
-                            <input type="text" class="form-control" min="0" id="productPrice" name="productPrice"
-                                placeholder="100">
+                            <label for="exampleFormControlInput1" class="form-label">Password</label>
+                            <input type="password" class="form-control" min="0" id="password" name="password">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" name="fullName" id="fullname" placeholder="Red">
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label ">Image</label>
                             <br>
-                            <input type="file" required name="imgProduct" id="files">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Color</label>
-                            <input type="text" class="form-control" name="productColor" id="productColor"
-                                placeholder="Red">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Product Type </label>
-                            <input type="text" class="form-control" name="productType" id="productType"
-                                placeholder="Shoe">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Customer name </label>
-                            <input type="text" class="form-control" name="customerName" id="customerName"
-                                placeholder="John Width">
+                            <input type="file" required name="avatar" id="files">
                         </div>
                         <span id="error" class="text-danger fw-bold"></span>
 
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" id="btn-add-product" class="btn btn-primary">Add</button>
+                            <button type="submit" id="btn-add-user" class="btn btn-primary">Add</button>
                         </div>
                     </form>
                 </div>
@@ -121,41 +108,31 @@
             <div class="modal-dialog ">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Update Product</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Update User</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="/updateProduct" enctype="multipart/form-data" method="post">
+                        <form action="/users/updateUser" enctype="multipart/form-data" method="post">
                             <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Name</label>
-                                <input type="text" class="form-control" id="nameUpdate" required name="productName"
-                                    value="<%=item.productName%>" placeholder="Jordan Nike Force One">
+                                <label for="exampleFormControlInput1" class="form-label">Username</label>
+                                <input type="text" class="form-control" id="username" required name="productName"
+                                    value="<%=item.email%>" placeholder="example@gmail.com">
                             </div>
                             <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Price</label>
-                                <input type="text" class="form-control" value="<%=item.productPrice %>" min="0"
-                                    id="priceUpdate" name="productPrice" placeholder="100">
+                                <label for="exampleFormControlInput1" class="form-label">Password</label>
+                                <input type="password" class="form-control" value="<%=item.password %>" id="password"
+                                    name="password" placeholder="100">
                             </div>
                             <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label ">Image</label>
+                                <label for="exampleFormControlInput1" class="form-label">Full Name</label>
+                                <input type="text" class="form-control" value="<%=item.fullName %>" name="fullName"
+                                    id="fullname" placeholder="Red">
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label ">Avatar</label>
                                 <br>
-                                <input type="file" value="<%=item.imgProduct%>" name="imgProduct" id="files">
-                                <img src="<%=item.imgProduct%>" style="width: 150px;height: 250px;" alt="">
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Color</label>
-                                <input type="text" class="form-control" value="<%=item.productColor %>"
-                                    name="colorUpdate" id="productColor" placeholder="Red">
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Product Type </label>
-                                <input type="text" class="form-control" value="<%=item.productType %>" name="typeUpdate"
-                                    id="productType" placeholder="Shoe">
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Customer name </label>
-                                <input type="text" class="form-control" value="<%=item.customerName %>"
-                                    name="customerUpdate" id="customerName" placeholder="John Width">
+                                <input type="file" value="<%=item.avatar%>" name="avatar" id="files">
+                                <img src="<%=item.avatar%>" style="width: 150px;height: 250px;" alt="">
                             </div>
                             <span id="error" class="text-danger fw-bold"></span>
 
@@ -182,7 +159,7 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
-                            <form action="/delProduct" method="post">
+                            <form action="/users/deleteUser" method="post">
                                 <input type="hidden" name="id" value=" <%= item._id %>">
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary"

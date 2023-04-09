@@ -13,7 +13,6 @@
               <th scope="col">Product Type</th>
               <th scope="col">Customer Name</th>
               <th scope="col" colspan="2" class="d-none d-md-table-cell">Edit</th>
-            </tr>
           </thead>
           <tbody>
             <% if(data.length==0) {%>
@@ -41,35 +40,39 @@
                     <td>
                       <%= item.customerName %>
                     </td>
-                    <td class="d-none d-md-table-cell">
-                      <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#updateProduct_<%=item.id%>">
-                        Update
-                      </button>
-                    <td class="d-none d-md-table-cell">
-                      <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                        data-bs-target="#deleteModal_<%=item.id%>">
-                        Delete
-                      </button>
-                    </td>
-                    </td>
+                      <td class="d-none d-md-table-cell">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                          data-bs-target="#updateProduct_<%=item.id%>">
+                          Update
+                        </button>
+                      <td class="d-none d-md-table-cell">
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                          data-bs-target="#deleteModal_<%=item.id%>">
+                          Delete
+                        </button>
+                      </td>
+                      
+                 
                   </tr>
                   <% } %>
                     <%}%>
           </tbody>
         </table>
       </div>
+    
+
       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProduct">
         Add product
       </button>
       <button type="button" class="btn btn-danger d-md-none" data-bs-toggle="modal" data-bs-target="#openEdit">
         Edit Product
-      </button>
+        </button>
+        
     </div>
   </div>
 
 
-  <!-- Modal -->
+  <!-- Modal Add -->
   <div class="modal fade " id="addProduct" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog ">
       <div class="modal-content">
@@ -78,8 +81,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-
-          <form action="/addProduct" enctype="multipart/form-data" method="post">
+          <form action="/products/addProduct" enctype="multipart/form-data" method="post">
             <div class="mb-3">
               <label for="exampleFormControlInput1" class="form-label">Name</label>
               <input type="text" class="form-control " id="productName" name="productName"
@@ -128,7 +130,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form action="/updateProduct" enctype="multipart/form-data" method="post">
+            <form action="/products/updateProduct" enctype="multipart/form-data" method="post">
               <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Name</label>
                 <input type="text" class="form-control" id="nameUpdate" required name="productName"
@@ -185,7 +187,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                             aria-label="Close"></button>
                     </div>
-                    <form action="/delProduct" method="post">
+                    <form action="/products/delProduct" method="post">
                         <input type="hidden" name="id" value=" <%= item._id %>">
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary"
